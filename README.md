@@ -14,19 +14,19 @@ Let's start by creating a frontend repository:
 $ mkdir frontend
 $ cd frontend
 $ git init
-Dépôt Git vide initialisé dans /tmp/tmp.nxfPqzVht3/frontend/.git/
+Dépôt Git vide initialisé dans /tmp/tmp.aOzaWeLmKk/frontend/.git/
 
 $ echo "Frontend README" > README.md
 $ git add README.md
 $ git commit -m "First frontend import"
-[main (commit racine) c3adb23] First frontend import
+[main (commit racine) 40a64bb] First frontend import
  1 file changed, 1 insertion(+)
  create mode 100644 README.md
 
 $ echo "Frontend feature a" > feature-a.txt
 $ git add feature-a.txt
 $ git commit -m "Add Frontend feature-a.txt"
-[main dff7720] Add Frontend feature-a.txt
+[main 61a7b52] Add Frontend feature-a.txt
  1 file changed, 1 insertion(+)
  create mode 100644 feature-a.txt
 
@@ -35,26 +35,26 @@ Basculement sur la nouvelle branche 'feature-b'
 $ echo "Frontend Feature b" > feature-b.txt
 $ git add feature-b.txt
 $ git commit -m "Add Frontend feature-b.txt"
-[feature-b 518ed3c] Add Frontend feature-b.txt
+[feature-b 97d082f] Add Frontend feature-b.txt
  1 file changed, 1 insertion(+)
  create mode 100644 feature-b.txt
 
 $ git log
-commit 518ed3c7c53b37b9f1e9974b2c7dcf0b4a201f5c
+commit 97d082fd95461d1ad56398ba9084764009415738
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-b.txt
 
-commit dff7720846eb89a87ee7e154bbe58658eb685547
+commit 61a7b52b0fa86408f8f8e85a5fafcf829eabe334
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-a.txt
 
-commit c3adb23c07773201d56b66feb44ddb1dcd2f7573
+commit 40a64bb04659f9ada47b77e6bbe194e7dd68ecd4
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     First frontend import
 $ git switch main
@@ -72,17 +72,17 @@ Next, let's create a backend repository:
 $ mkdir backend
 $ cd backend
 $ git init
-Dépôt Git vide initialisé dans /tmp/tmp.nxfPqzVht3/backend/.git/
+Dépôt Git vide initialisé dans /tmp/tmp.aOzaWeLmKk/backend/.git/
 $ echo "Backend README" > README.md
 $ git add README.md
 $ git commit -m "First backend import"
-[main (commit racine) 9cf591f] First backend import
+[main (commit racine) f55b62f] First backend import
  1 file changed, 1 insertion(+)
  create mode 100644 README.md
 $ echo "Backend Feature c" > feature-c.txt
 $ git add feature-c.txt
 $ git commit -m "Add Backend feature-a.txt"
-[main 1bd616c] Add Backend feature-a.txt
+[main baac6be] Add Backend feature-a.txt
  1 file changed, 1 insertion(+)
  create mode 100644 feature-c.txt
 $ git switch -c feature-d
@@ -90,25 +90,25 @@ Basculement sur la nouvelle branche 'feature-d'
 $ echo "Backend Feature d" > feature-d.txt
 $ git add feature-d.txt
 $ git commit -m "Add backend feature-d.txt"
-[feature-d d586865] Add backend feature-d.txt
+[feature-d 9c3aad5] Add backend feature-d.txt
  1 file changed, 1 insertion(+)
  create mode 100644 feature-d.txt
 $ git log
-commit d586865a5037e83ef2b5e69cc0d6ed02994a909b
+commit 9c3aad5bcd333dc80d45122665f532dab56c0600
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add backend feature-d.txt
 
-commit 1bd616cc93a686fedcdc327eaa077f3426f02970
+commit baac6bebe4a668b641395851c050868dce55e936
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Backend feature-a.txt
 
-commit 9cf591f583204e1d2055ee6794e0e32ae0226c74
+commit f55b62fc2c2dabc78302cb9d335311cb10fca685
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     First backend import
 $ git switch main
@@ -144,11 +144,11 @@ tomono <<EOF
 $PWD/frontend frontend
 $PWD/backend backend
 EOF
-Dépôt Git vide initialisé dans /tmp/tmp.nxfPqzVht3/monorepo/.git/
-Depuis /tmp/tmp.nxfPqzVht3/frontend
+Dépôt Git vide initialisé dans /tmp/tmp.aOzaWeLmKk/monorepo/.git/
+Depuis /tmp/tmp.aOzaWeLmKk/frontend
  * [nouvelle branche] feature-b  -> frontend/feature-b
  * [nouvelle branche] main       -> frontend/main
-Depuis /tmp/tmp.nxfPqzVht3/backend
+Depuis /tmp/tmp.aOzaWeLmKk/backend
  * [nouvelle branche] feature-d  -> backend/feature-d
  * [nouvelle branche] main       -> backend/main
 4 chemins mis à jour depuis l'index
@@ -169,66 +169,66 @@ $ tree .
 
 3 directories, 4 files
 $ git log
-commit fd1d878d1bf47a613a779b97cf6810f19a4ded1c
-Merge: cb61337 0c7a286
+commit a9c570256287fc4734b9fbc2ee567e3c6b4e804e
+Merge: 37443bd ea73ada
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Merge backend/main
 
-commit cb61337fc515d08683961e9fe75fbeebf057db7e
-Merge: 8707d00 1e4a508
+commit 37443bd7b430f280072abe8cf310e36d780d78ae
+Merge: aaa1b6b d186ca4
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Merge frontend/main
 
-commit 0c7a286bfef0ffc9ad292dc4bafb377cac59bb0e
+commit ea73adab10636fb5de62fd7fd6e5343ceee1577d
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Move all files to backend/
 
-commit 8707d00c0702d915f21670b8d7be67d78f978aa9
+commit aaa1b6b031d95e53ccbad7576aed59d0279a2bbb
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Root commit for monorepo branch main
 
-commit 1e4a508e4d84ddfdc69afcda36418fdd2bd95ede
+commit d186ca4250be1aecbc9df84efea8760a2d9a80cb
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Move all files to frontend/
 
-commit 1bd616cc93a686fedcdc327eaa077f3426f02970
+commit baac6bebe4a668b641395851c050868dce55e936
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Backend feature-a.txt
 
-commit dff7720846eb89a87ee7e154bbe58658eb685547
+commit 61a7b52b0fa86408f8f8e85a5fafcf829eabe334
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-a.txt
 
-commit 9cf591f583204e1d2055ee6794e0e32ae0226c74
+commit f55b62fc2c2dabc78302cb9d335311cb10fca685
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     First backend import
 
-commit c3adb23c07773201d56b66feb44ddb1dcd2f7573
+commit 40a64bb04659f9ada47b77e6bbe194e7dd68ecd4
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     First frontend import
 $ git remote -v
-backend	/tmp/tmp.nxfPqzVht3/backend (fetch)
-backend	/tmp/tmp.nxfPqzVht3/backend (push)
-frontend	/tmp/tmp.nxfPqzVht3/frontend (fetch)
-frontend	/tmp/tmp.nxfPqzVht3/frontend (push)
+backend	/tmp/tmp.aOzaWeLmKk/backend (fetch)
+backend	/tmp/tmp.aOzaWeLmKk/backend (push)
+frontend	/tmp/tmp.aOzaWeLmKk/frontend (fetch)
+frontend	/tmp/tmp.aOzaWeLmKk/frontend (push)
 ```
 
 Let's add some files to the root of the mono repo:
@@ -239,7 +239,7 @@ $ git add README.md
 $ echo -e [tools]nnode = 20.12.2 > .mise.toml
 $ git add .mise.toml
 $ git commit -m "Root monorepo files"
-[main 4b0ef59] Root monorepo files
+[main 0e9cf40] Root monorepo files
  2 files changed, 3 insertions(+)
  create mode 100644 .mise.toml
  create mode 100644 README.md
@@ -254,25 +254,25 @@ $ cd ../frontend
 $ echo "Frontend Feature e" > feature-e.txt
 $ git add feature-e.txt
 $ git commit -m "Add Frontend feature-e.txt"
-[main 5c365db] Add Frontend feature-e.txt
+[main 05dd399] Add Frontend feature-e.txt
  1 file changed, 1 insertion(+)
  create mode 100644 feature-e.txt
 $ git log
-commit 5c365dbe0b01033cf1fb0b82b05b786d353fceb6
+commit 05dd39973564484dd321396b711aa864482673ed
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-e.txt
 
-commit dff7720846eb89a87ee7e154bbe58658eb685547
+commit 61a7b52b0fa86408f8f8e85a5fafcf829eabe334
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-a.txt
 
-commit c3adb23c07773201d56b66feb44ddb1dcd2f7573
+commit 40a64bb04659f9ada47b77e6bbe194e7dd68ecd4
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     First frontend import
 ```
@@ -282,8 +282,8 @@ Pull `frontend` last commit to `monorepo`:
 ```sh
 $ cd ../monorepo
 $ git fetch frontend
-Depuis /tmp/tmp.nxfPqzVht3/frontend
-   dff7720..5c365db  main       -> frontend/main
+Depuis /tmp/tmp.aOzaWeLmKk/frontend
+   61a7b52..05dd399  main       -> frontend/main
 $ git merge -X subtree=frontend/ frontend/main --no-edit
 Merge made by the 'ort' strategy.
  frontend/feature-e.txt | 1 +
@@ -295,27 +295,25 @@ This is what the last log lines look like:
 
 ```sh
 $ git log -n3
-commit a98f420d6dc01dee817a9c0af5fe0d2979b6d4a5
-Merge: 4b0ef59 5c365db
+commit f911bdb130a95fe52312b84c478d007bf331d63a
+Merge: 0e9cf40 05dd399
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Merge remote-tracking branch 'frontend/main'
 
-commit 4b0ef59dc2b0f0d664f392e7a97cbcfe6d59cebf
+commit 0e9cf406cc21fd7fc78c3b454757e25e04d49147
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Root monorepo files
 
-commit 5c365dbe0b01033cf1fb0b82b05b786d353fceb6
+commit 05dd39973564484dd321396b711aa864482673ed
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-e.txt
 ```
-
-You can visit https://github.com/stephane-klein/poc-git-monorepo-multirepos-sync-result-example to see what monorepo looks like at the end of this demo.
 
 ## Making changes in the `./frontend/` folder of the *monorepo*
 
@@ -330,96 +328,34 @@ $ cd frontend
 $ echo "Frontend Feature f" > feature-f.txt
 $ git add feature-f.txt
 $ git commit -m "Add Frontend feature-f.txt"
-[main 6f063d4] Add Frontend feature-f.txt
+[main 2b9c8c3] Add Frontend feature-f.txt
  1 file changed, 1 insertion(+)
  create mode 100644 frontend/feature-f.txt
-$ git log
-commit 6f063d45b5413c93bb36629f44cd83fc64b093cb
+$ git log -n3
+commit 2b9c8c347613c30a63cf03d6623d7cbd82794f37
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-f.txt
 
-commit a98f420d6dc01dee817a9c0af5fe0d2979b6d4a5
-Merge: 4b0ef59 5c365db
+commit f911bdb130a95fe52312b84c478d007bf331d63a
+Merge: 0e9cf40 05dd399
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Merge remote-tracking branch 'frontend/main'
 
-commit 4b0ef59dc2b0f0d664f392e7a97cbcfe6d59cebf
+commit 0e9cf406cc21fd7fc78c3b454757e25e04d49147
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Root monorepo files
-
-commit 5c365dbe0b01033cf1fb0b82b05b786d353fceb6
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    Add Frontend feature-e.txt
-
-commit fd1d878d1bf47a613a779b97cf6810f19a4ded1c
-Merge: cb61337 0c7a286
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    Merge backend/main
-
-commit dff7720846eb89a87ee7e154bbe58658eb685547
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    Add Frontend feature-a.txt
-
-commit cb61337fc515d08683961e9fe75fbeebf057db7e
-Merge: 8707d00 1e4a508
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    Merge frontend/main
-
-commit 0c7a286bfef0ffc9ad292dc4bafb377cac59bb0e
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    Move all files to backend/
-
-commit c3adb23c07773201d56b66feb44ddb1dcd2f7573
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    First frontend import
-
-commit 8707d00c0702d915f21670b8d7be67d78f978aa9
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    Root commit for monorepo branch main
-
-commit 1e4a508e4d84ddfdc69afcda36418fdd2bd95ede
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    Move all files to frontend/
-
-commit 1bd616cc93a686fedcdc327eaa077f3426f02970
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    Add Backend feature-a.txt
-
-commit 9cf591f583204e1d2055ee6794e0e32ae0226c74
-Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
-
-    First backend import
 $ git format-patch --relative -1 HEAD
 0001-Add-Frontend-feature-f.txt.patch
 $ cat 0001-Add-Frontend-feature-f.txt.patch
-From 6f063d45b5413c93bb36629f44cd83fc64b093cb Mon Sep 17 00:00:00 2001
+From 2b9c8c347613c30a63cf03d6623d7cbd82794f37 Mon Sep 17 00:00:00 2001
 From: stephane-klein <contact@stephane-klein.info>
-Date: Sat, 7 Dec 2024 20:37:54 +0100
+Date: Sat, 7 Dec 2024 20:46:18 +0100
 Subject: [PATCH] Add Frontend feature-f.txt
 
 ---
@@ -446,20 +382,31 @@ $ cd ../../frontend/
 $ git am ../monorepo/frontend/0001-Add-Frontend-feature-f.txt.patch
 Application de  Add Frontend feature-f.txt
 $ git log -n3
-commit 96dc9c70437e8a61dd49d117857a39469ce093b9
+commit b860de788f1c2ae056778f9c3048900d0887afaa
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-f.txt
 
-commit 5c365dbe0b01033cf1fb0b82b05b786d353fceb6
+commit 05dd39973564484dd321396b711aa864482673ed
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-e.txt
 
-commit dff7720846eb89a87ee7e154bbe58658eb685547
+commit 61a7b52b0fa86408f8f8e85a5fafcf829eabe334
 Author: stephane-klein <contact@stephane-klein.info>
-Date:   Sat Dec 7 20:37:54 2024 +0100
+Date:   Sat Dec 7 20:46:18 2024 +0100
 
     Add Frontend feature-a.txt
+```
+
+## End of demo
+
+You can visit https://github.com/stephane-klein/poc-git-monorepo-multirepos-sync-result-example to see what monorepo looks like at the end of this demo.
+
+## Contribute
+
+This `README.md` file is automatically generated by the `generate-readme.sh` script,
+which executes the `demo.sh` script and saves the output in `README.md`.
+
