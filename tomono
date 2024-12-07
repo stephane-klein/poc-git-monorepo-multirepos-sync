@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+set -euo pipefail ${DEBUGSH+-x}
+
+if ((BASH_VERSINFO[0] > 4 || (BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] >= 4))); then
+	shopt -s inherit_errexit
+fi
+
+# Poor man’s arg parse :/
+arg="${1-}"
+: "${MONOREPO_NAME:=core}"
+
+case "$arg" in
+    "")
+        if [[ -d "$MONOREPO_NAME" ]]; then
+            >&2 echo "monorepo directory $MONOREPO_NAME already exists"
+            exit 1
+        fi
+        mkdir "$MONOREPO_NAME"
+        cd "$MONOREPO_NAME"
+        git init
+        ;;
+
+    "--continue")
+        if [[ ! -d "$MONOREPO_NAME" ]]; then
+            >&2 echo "Asked to --continue, but monorepo directory $MONOREPO_NAME doesn’t exist"
+            exit 1
+        fi
+        cd "$MONOREPO_NAME"
+        if git status --porcelain | grep . ; then
+            >&2 echo "Git status shows pending changes in the repo. Cannot --continue."
+            exit 1
+        fi
+        # There isn’t anything special about --continue, really.
+        ;;
+
+    "--help" | "-h" | "help")
+        cat <<EOF
+Usage: tomono [--continue]
+
+For more information, see the documentation at "https://tomono.0brg.net".
+EOF
+        exit 0
+        ;;
+
+    *)
+        >&2 echo "Unexpected argument: $arg"
+        >&2 echo
+        >&2 echo "Usage: tomono [--continue]"
+        exit 1
+        ;;
+esac
+
+empty_tree="$(git hash-object -t tree /dev/null)"
+
+# Note this is top-level in the script so it’s reading from the script’s stdin
+while IFS=$'\r'"$IFS" read -r repourl reponame repopath; do
+    if [[ -z "$repopath" ]]; then
+        repopath="$reponame"
+    fi
+
+    git remote add "$reponame" "$repourl"
+    git config --add "remote.$reponame.fetch" "+refs/tags/*:refs/tags/$reponame/*"
+    git config "remote.$reponame.tagOpt" --no-tags
+    git fetch --atomic "$reponame"
+    
+    git branch -r --no-color --list "$reponame/*" --format "%(refname:lstrip=3)" | while read -r branch ; do
+        git read-tree "$empty_tree"
+        git read-tree --prefix "$repopath" "refs/remotes/$reponame/$branch"
+        tree="$(git write-tree)"
+        move_commit="$(git commit-tree \
+            "$tree" \
+            -p "refs/remotes/$reponame/$branch" \
+            -m "Move all files to $repopath/")"
+        if ! git show-ref --verify --quiet "refs/heads/$branch"; then
+            root_commit="$(git commit-tree \
+                "$empty_tree" \
+                -m "Root commit for monorepo branch $branch")"
+            git branch -- "$branch" "$root_commit"
+        fi
+        git symbolic-ref HEAD "refs/heads/$branch"
+        git reset -q
+        
+        git read-tree --prefix "$repopath" "refs/remotes/$reponame/$branch"
+        tree="$(git write-tree)"
+        merge_commit="$(git commit-tree \
+            "$tree" \
+            -p "$branch" \
+            -p "$move_commit" \
+            -m "Merge $reponame/$branch")"
+        git reset -q "$merge_commit"
+    done
+done
+
+git checkout .
+
+# Copyright © 2020, 2022–2024 Hraban Luyat
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, version 3 of the License.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
